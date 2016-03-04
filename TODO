@@ -1,0 +1,8 @@
+X 1. build a team representation with year info
+X 2. build a game representation with yeah and day number info
+    ? How do you know how to score submissions if you pass in a full seasons worth of results. As in, say i use a results file that is HUGE and contains many seasons (we should be able to handle this easy) but contains ALL the games for those seasons. The tourney starts on days 137 or there abouts. How do I know to start scoring from them on out? should I pass this to the score script?
+3. build a season representation
+4. read in several people's models from 2015 and 2014 and make sure we get the right scores.
+
+
+* read in results, start date, and sample results to the score.py and score it. 

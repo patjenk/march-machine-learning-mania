@@ -17,11 +17,19 @@ parser.add_argument("-r", "--results",
                     action="store",
                     dest="results_filename",
                     help="The name of the results file to use. If not provided the canonical Kaggle result will be used.")
+parser.add_argument("-d", "--start-day",
+                    action="store",
+                    dest="tournament_start_day",
+                    help="The day number of the start of the tournament.")
+args = parser.parse_args()
 
 
 def score_submission():
     """
     """
+    import ipdb
+    ipdb.set_trace()
+    results_file = args
 
 
 

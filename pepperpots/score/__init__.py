@@ -6,15 +6,6 @@ from csv import DictReader
 from scipy import log, maximum, minimum, subtract
 
 
-class BasketballGame():
-    datetime = None
-    location = None
-    latitude = None
-    Longitude = None
-    home_team_id = None
-    away_team_id = None
-
-
 class MarchMachineLearningManiaSubmission():
     """
     Encapsulates a submission to the Kaggle contest.
