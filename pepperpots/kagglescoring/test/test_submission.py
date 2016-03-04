@@ -1,7 +1,7 @@
 """
 Test the MarchMachineLearningManiaSubmission class.
 """
-from ..submission import MarchMachineLearningManiaSubmission
+from kagglescoring.submission import MarchMachineLearningManiaSubmission
 from os import path
 import unittest
 
@@ -32,7 +32,7 @@ class MarchMachineLearningManiaSubmissionTest(unittest.TestCase):
         test that given a submission file on disk we can load it in
         """
         kaggle_submission = MarchMachineLearningManiaSubmission()
-        kaggle_submission.load(path.join(".", "score", "tests", "data", "test_submission.001.csv"))
+        kaggle_submission.load(path.join(".", "kagglescoring", "test", "data", "test_submission.001.csv"))
         self.assertEqual(2015, kaggle_submission.year)
         self.assertEqual(67, len(kaggle_submission.predictions))
         self.assertEqual(kaggle_submission.predictions[1][2], 0.5)

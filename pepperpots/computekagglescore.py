@@ -1,8 +1,8 @@
 # A command line tool for reading in and scoring kaggle march machine
 # learning mania submissions and scoring.
 import argparse
-from submission import MarchMachineLearningManiaSubmission
-from results import MarchMachineLearningManiaResults
+from kagglescoring.submission import MarchMachineLearningManiaSubmission
+from kagglescoring.results import MarchMachineLearningManiaResults
 
 
 parser = argparse.ArgumentParser(description="Compute the logloss score for a Kaggle March Machine Learning Mania Submission")
@@ -39,9 +39,18 @@ def score_submission():
 
     game_results = MarchMachineLearningManiaResults()
     game_results.load(args.results_filename)
-    print len(game_results.game_scores[args.year_to_score])
-    print kaggle_submission.year
 
+    game_days = []
+    for daynum in game_results.game_scores[kaggle_submission.year]:
+        if daynum >= args.tournament_start_day:
+            game_days.append(daynum)
+
+    game_results = []
+    for daynum in game_days:
+        for game in game_results.game_scores[kaggle_submission.year][daynum]:
+            game_results.append((game.kaggle_underscore_representation(), game.winning_team_id()))
+
+    print round(kaggle_submission.score_result(game_results), 6)
 
 if __name__ == "__main__":
     score_submission()

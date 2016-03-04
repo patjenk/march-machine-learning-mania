@@ -1,5 +1,5 @@
 from csv import DictReader
-from ..collegeBasketball.game import CollegeBasketballGame
+from collegeBasketball.game import CollegeBasketballGame
 
 
 class MarchMachineLearningManiaResults():
