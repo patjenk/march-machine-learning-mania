@@ -1,7 +1,7 @@
 """
 Test the MarchMachineLearningManiaSubmission class.
 """
-from ..import MarchMachineLearningManiaSubmission
+from ..submission import MarchMachineLearningManiaSubmission
 from os import path
 import unittest
 
