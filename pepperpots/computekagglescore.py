@@ -21,19 +21,15 @@ parser.add_argument("-r", "--results",
                     help="The name of the results file to use. If not provided the canonical Kaggle result will be used.")
 parser.add_argument("-d", "--start-day",
                     action="store",
+                    type=int,
                     dest="tournament_start_day",
                     help="The day number of the start of the tournament.")
-parser.add_argument("-y", "--year",
-                    action="store",
-                    dest="year_to_score",
-                    help="The year (or season in kaggle parlance) to grade the submission on. This is useful in case the results file has multiple years included.")
 args = parser.parse_args()
 
 
 def score_submission():
     """
     """
-    print args.results_filename
     kaggle_submission = MarchMachineLearningManiaSubmission()
     kaggle_submission.load(args.submission_filename)
 
@@ -45,12 +41,12 @@ def score_submission():
         if daynum >= args.tournament_start_day:
             game_days.append(daynum)
 
-    game_results = []
+    games_to_score = []
     for daynum in game_days:
         for game in game_results.game_scores[kaggle_submission.year][daynum]:
-            game_results.append((game.kaggle_underscore_representation(), game.winning_team_id()))
+            games_to_score.append((game.kaggle_underscore_representation(), game.winning_team_id()))
 
-    print round(kaggle_submission.score_result(game_results), 6)
+    print round(kaggle_submission.score_result(games_to_score), 6)
 
 if __name__ == "__main__":
     score_submission()
