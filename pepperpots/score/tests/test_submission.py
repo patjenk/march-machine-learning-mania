@@ -32,12 +32,12 @@ class MarchMachineLearningManiaSubmissionTest(unittest.TestCase):
         test that given a submission file on disk we can load it in
         """
         kaggle_submission = MarchMachineLearningManiaSubmission()
-        kaggle_submission.load(path.join(".", "pepperpots", "score", "tests", "data", "test_submission.001.csv"))
+        kaggle_submission.load(path.join(".", "score", "tests", "data", "test_submission.001.csv"))
         self.assertEqual(2015, kaggle_submission.year)
-        self.assertEqual(66, len(kaggle_submission.predictions))
+        self.assertEqual(67, len(kaggle_submission.predictions))
         self.assertEqual(kaggle_submission.predictions[1][2], 0.5)
 
-    def test_load_submission(self):
+    def test_score_submission(self):
         """
         test that when we have a submission file loaded
         and that submission file gives every game a 0.5 probablitity
